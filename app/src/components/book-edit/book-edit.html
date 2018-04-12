@@ -1,0 +1,146 @@
+<div class="bookEdit">
+	<div class="bookEdit-control">
+		<a class="bookEdit-controlBackLink" href="#/book-list">
+			<button class="btn btn-md btn-default">
+				<span class="glyphicon glyphicon-arrow-left"></span> Назад к списку
+			</button>
+		</a>
+		<div class="bookEdit-controlRemoveBook">
+			<button class="btn btn-md btn-default" ng-click="::vm.removeBook()">
+				<span class="glyphicon glyphicon-trash"></span> Удалить книгу
+			</button>
+		</div>
+	</div>
+	<form name="bookEditForm" class="bookEdit-form" ng-if="vm.book && vm.validationRules">
+		<div class="bookEdit-formImg">
+			<div class="bookEdit-formImgWrapper">
+				<img src="src/images/{{ vm.book.img }}" ng-if="vm.book.img"/>
+			</div>
+			<!--todo: load image-->
+			<!--<input type="file" class="bookEdit-formImgInput input-sm"-->
+				   <!--ng-required="vm.validationRules.required.img">-->
+		</div>
+		<div class="bookEdit-formContent">
+			<div class="bookEdit-formContentData col-sm-4">
+				<label class="bookEdit-formContentDataLabel">
+					Название<span ng-if="vm.validationRules.required.header"> *</span>
+				</label>
+				<input type="text" class="input-sm" placeholder="Название книги"
+					   ng-model="vm.book.header"
+					   ng-maxlength="vm.validationRules.maxHeaderLength"
+					   ng-required="vm.validationRules.required.header">
+			</div>
+
+			<div class="bookEdit-formContentData col-sm-4">
+				<label class="bookEdit-formContentDataLabel">
+					Количество страниц<span ng-if="vm.validationRules.required.pages"> *</span>
+				</label>
+				<input type="number" class="input-sm" placeholder="200"
+					   ng-model="vm.book.pages"
+					   ng-min="vm.validationRules.minPages"
+					   ng-max="vm.validationRules.maxPages"
+					   ng-required="vm.validationRules.required.pages">
+			</div>
+
+			<div class="bookEdit-formContentData col-sm-4">
+				<label class="bookEdit-formContentDataLabel">
+					Издательство<span ng-if="vm.validationRules.required.publishingHouse"> *</span>
+				</label>
+				<input type="text" class="input-sm" placeholder="Азбука"
+					   ng-model="vm.book.publishingHouse"
+					   ng-maxlength="vm.validationRules.maxPublishingHouseLength"
+					   ng-required="vm.validationRules.required.publishingHouse">
+			</div>
+
+			<div class="bookEdit-formContentHeader col-sm-12">
+				<span>Авторы</span>
+				<button class="bookEdit-formContentHeaderBtn btn btn-xs btn-default"
+						ng-disabled="vm.book.authors.length == vm.validationRules.maxAuthors"
+						ng-click="::vm.addAuthor()">
+					<span class="glyphicon glyphicon-plus"></span> Добавить
+				</button>
+			</div>
+
+			<div class="bookEdit-formContentData">
+				<div class="bookEdit-formContentDataAuthors clearfix" ng-repeat="author in vm.book.authors">
+					<div class="col-sm-4">
+						<label class="bookEdit-formContentDataAuthorsLabel">
+							Имя<span ng-if="vm.validationRules.required.authors.name"> *</span>
+						</label>
+						<input type="text" class="input-sm" placeholder="Имя"
+							   ng-model="author.name"
+							   ng-maxlength="vm.validationRules.maxAuthorNameLength"
+							   ng-required="vm.validationRules.required.authors.name">
+					</div>
+					<div class="col-sm-4">
+						<label class="bookEdit-formContentDataAuthorsLabel">
+							Фамилия<span ng-if="vm.validationRules.required.authors.surname"> *</span>
+						</label>
+						<input type="text" class="input-sm" placeholder="Фамилия"
+							   ng-model="author.surname"
+							   ng-maxlength="vm.validationRules.maxAuthorSurnameLength"
+							   ng-required="vm.validationRules.required.authors.surname">
+					</div>
+					<div class="bookEdit-formContentDataAuthorsBtn col-sm-4">
+						<button class="btn btn-xs btn-default"
+								ng-if="vm.book.authors.length > vm.validationRules.minAuthors"
+								ng-click="::vm.removeAuthor($index)">
+							<span class="glyphicon glyphicon-remove"></span> Удалить
+						</button>
+					</div>
+				</div>
+			</div>
+
+			<div class="bookEdit-formContentData col-sm-4">
+				<label class="bookEdit-formContentDataLabel">
+					Год публикации<span ng-if="vm.validationRules.required.publicationYear"> *</span>
+				</label>
+				<input type="number" class="input-sm" placeholder="1900"
+					   ng-model="vm.book.publicationYear"
+					   ng-min="vm.validationRules.minPublicationYear"
+					   ng-max="vm.getCurrentYear()"
+					   ng-required="vm.validationRules.required.publicationYear">
+			</div>
+
+			<div class="bookEdit-formContentData col-sm-4">
+				<label class="bookEdit-formContentDataLabel">
+					Дата выхода в тираж<span ng-if="vm.validationRules.required.releaseDate"> *</span>
+				</label>
+				<datepicker
+						date-format="dd.MM.yyyy"
+						date-min-limit="{{ vm.validationRules.minReleaseDate }}">
+					<input type="text" class="input-sm"
+						   ng-readonly="true"
+						   ng-model="vm.book.releaseDate"/>
+				</datepicker>
+			</div>
+
+			<div class="bookEdit-formContentData col-sm-4">
+				<label class="bookEdit-formContentDataLabel">
+					ISBN<span ng-if="vm.validationRules.required.isbn"> *</span>
+				</label>
+				<input type="text" class="input-sm" placeholder="978-1-4493-4485-6"
+					   isbn13
+					   ng-model="vm.book.isbn"
+					   ng-maxlength="20"
+					   ng-required="vm.validationRules.required.isbn">
+			</div>
+
+			<div class="bookEdit-formContentComment col-sm-12">
+				* - обязательные для заполнения поля
+			</div>
+
+			<div class="bookEdit-formContentControl col-sm-12">
+				<button class="bookEdit-formContentControlBtn btn btn-md btn-default"
+						ng-click="::vm.cancel()">Отмена
+				</button>
+				<button class="bookEdit-formContentControlBtn btn btn-md btn-default"
+						ng-disabled="bookEditForm.$invalid"
+						ng-click="::vm.saveBook()">
+					<span class="glyphicon glyphicon-floppy-save"></span> Сохранить
+				</button>
+			</div>
+		</div>
+	</form>
+</div>
+

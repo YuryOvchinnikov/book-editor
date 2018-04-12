@@ -1,0 +1,37 @@
+.bookList {
+    padding-bottom: 40px;
+}
+
+.bookList .bookList-control {
+    width: 100%;
+    margin-bottom: 40px;
+}
+
+.bookList .bookList-controlSort {
+    display: inline-flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.bookList .bookList-controlSortHeader {
+    margin-right: 20px;
+}
+
+.bookList .bookList-controlSortByName {
+    width: 180px;
+    margin-right: 20px;
+}
+
+.bookList .bookList-controlSortByYear {
+    width: 180px;
+}
+
+.bookList .bookList-controlAddBook {
+    width: 150px;
+    float: right;
+    color: #fff;
+}
+
+.bookList .bookList-controlAddBook:hover {
+    text-decoration: none;
+}

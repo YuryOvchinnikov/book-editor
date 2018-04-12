@@ -1,0 +1,77 @@
+.bookEdit .bookEdit-control {
+    width: 100%;
+    margin-bottom: 40px;
+}
+
+.bookEdit .bookEdit-controlRemoveBook {
+    float: right;
+}
+
+.bookEdit .bookEdit-form {
+    display: inline-flex;
+    width: 100%;
+}
+
+.bookEdit .bookEdit-formImg {
+    width: 180px;
+    margin-right: 50px;
+}
+
+.bookEdit .bookEdit-formImgWrapper {
+    height: 240px;
+    background-color: #EEE;
+}
+
+.bookEdit .bookEdit-formImgInput {
+    margin-top: 20px;
+    padding: 0;
+}
+
+.bookEdit .bookEdit-formContent {
+    width: 670px;
+}
+
+.bookEdit .bookEdit-formContentData {
+    margin-bottom: 40px;
+}
+
+.bookEdit .bookEdit-formContentDataLabel {
+    font-weight: normal;
+    font-size: 10px;
+}
+
+.bookEdit .bookEdit-formContentDataAuthors {
+    margin-bottom: 10px;
+}
+
+.bookEdit .bookEdit-formContentDataAuthorsLabel {
+    font-weight: normal;
+    font-size: 10px;
+}
+
+.bookEdit .bookEdit-formContentDataAuthorsBtn {
+    padding-top: 25px;
+}
+
+.bookEdit .bookEdit-formContentHeader {
+    margin-bottom: 10px;
+}
+
+.bookEdit .bookEdit-formContentHeaderBtn {
+    margin-left: 15px;
+}
+
+.bookEdit .bookEdit-formContentComment {
+    color: gray;
+    font-size: 10px;
+}
+
+.bookEdit .bookEdit-formContentControl {
+    margin-top: 40px;
+    padding: 0;
+    text-align: center;
+}
+
+.bookEdit .bookEdit-formContentControlBtn {
+    margin-right: 15px;
+}

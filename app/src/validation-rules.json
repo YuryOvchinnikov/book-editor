@@ -1,0 +1,25 @@
+{
+    "maxHeaderLength": "30",
+    "minAuthors": "1",
+    "maxAuthors": "10",
+    "maxAuthorNameLength": "20",
+    "maxAuthorSurnameLength": "20",
+    "minPages": "1",
+    "maxPages": "10000",
+    "maxPublishingHouseLength": "30",
+    "minPublicationYear": "1800",
+    "minReleaseDate": "01.01.1800",
+    "required": {
+        "header": true,
+        "authors": {
+            "name": true,
+            "surname": true
+        },
+        "pages": true,
+        "publishingHouse": false,
+        "publicationYear": false,
+        "releaseDate": false,
+        "isbn": false,
+        "img": false
+    }
+}

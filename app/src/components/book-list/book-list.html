@@ -1,0 +1,36 @@
+<div class="bookList" ng-if="vm.bookList">
+    <div class="bookList-control">
+        <div class="bookList-controlSort">
+            <div class="bookList-controlSortHeader">
+               Сортировать
+            </div>
+            <div class="bookList-controlSortByName">
+                <button class="btn btn-md btn-default btn-block" ng-click="vm.sortBookList('header')">
+                    <span  ng-show="vm.sortOptions.type == 'header'"
+                           ng-class="{'glyphicon glyphicon-arrow-down': !vm.sortOptions.reverse,
+                                      'glyphicon glyphicon-arrow-up': vm.sortOptions.reverse}">
+                    </span>
+                    По названию
+                </button>
+            </div>
+            <div class="bookList-controlSortByYear">
+                <button class="btn btn-md btn-default btn-block" ng-click="vm.sortBookList('publicationYear')">
+                    <span  ng-show="vm.sortOptions.type == 'publicationYear'"
+                           ng-class="{'glyphicon glyphicon-arrow-down': !vm.sortOptions.reverse,
+                                      'glyphicon glyphicon-arrow-up': vm.sortOptions.reverse}">
+                    </span>
+                    По году публикации
+                </button>
+            </div>
+        </div>
+        <a class="bookList-controlAddBook" href="#/book-edit">
+            <button class="btn btn-md btn-success btn-block">
+                <span class="glyphicon glyphicon-plus"></span> Добавить книгу
+            </button>
+        </a>
+    </div>
+    <book-list-item
+            ng-repeat="book in vm.bookList | orderBy : vm.sortOptions.type : vm.sortOptions.reverse"
+            data-book="book">
+    </book-list-item>
+</div>

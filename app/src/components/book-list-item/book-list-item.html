@@ -1,0 +1,49 @@
+<div class="bookListItem">
+    <div class="bookListItem-img">
+        <img src="src/images/{{ book.img }}" ng-if="book.img"/>
+    </div>
+    <div class="bookListItem-content">
+        <div class="bookListItem-contentHeader">
+            {{ ::book.header }}
+        </div>
+        <table>
+            <col width="200"/>
+            <col width="330"/>
+            <tr>
+                <td class="bookListItem-contentLabel">Автор<span ng-if="::book.authors.length > 1">ы</span>: </td>
+                <td class="bookListItem-contentText">
+                    <span ng-repeat="author in ::book.authors">
+                        {{ ::author.name }} {{ ::author.surname }}<span ng-if="!$last">, </span>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="bookListItem-contentLabel">Количество страниц: </td>
+                <td class="bookListItem-contentText">{{ ::book.pages }}</td>
+            </tr>
+            <tr>
+                <td class="bookListItem-contentLabel">Издательство: </td>
+                <td class="bookListItem-contentText">{{ ::book.publishingHouse }}</td>
+            </tr>
+            <tr>
+                <td class="bookListItem-contentLabel">Год публикации: </td>
+                <td class="bookListItem-contentText">{{ ::book.publicationYear }}</td>
+            </tr>
+            <tr>
+                <td class="bookListItem-contentLabel">Дата выхода в тираж: </td>
+                <td class="bookListItem-contentText">{{ ::book.releaseDate }}</td>
+            </tr>
+            <tr>
+                <td class="bookListItem-contentLabel">ISBN: </td>
+                <td class="bookListItem-contentText">{{ ::book.isbn }}</td>
+            </tr>
+        </table>
+    </div>
+    <div class="bookListItem-control">
+        <a class="bookListItem-controlLink" href="#/book-edit/{{ ::book.id }}">
+            <button class="btn btn-md btn-default btn-block">
+                <span class="glyphicon glyphicon-pencil"></span> Редактировать
+            </button>
+        </a>
+    </div>
+</div>

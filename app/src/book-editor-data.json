@@ -1,0 +1,74 @@
+{
+    "bookList": [
+        {
+            "id": 1,
+            "header": "Мастер и Маргарита",
+            "authors": [{"name": "Михаил", "surname": "Булгаков"}],
+            "pages": 416,
+            "publishingHouse": "Азбука",
+            "publicationYear": 1967,
+            "releaseDate": "28.02.2017",
+            "isbn": "978-5-389-01666-8",
+            "img": "book1.jpg"
+        },
+        {
+            "id": 2,
+            "header": "Мертвые души",
+            "authors": [{"name": "Николай", "surname": "Гоголь"}],
+            "pages": 288,
+            "publishingHouse": "Мартин",
+            "publicationYear": 1842,
+            "releaseDate": "24.05.2017",
+            "isbn": "978-5-8475-0913-8",
+            "img": "book2.jpg"
+        },
+        {
+            "id": 3,
+            "header": "Проект «Феникс",
+            "authors": [{"name": "Джин", "surname": "Ким"}, {"name": "Кевин", "surname": "Бер"}],
+            "pages": 384,
+            "publishingHouse": "Эксмо",
+            "publicationYear": 2015,
+            "releaseDate": "15.09.2016",
+            "isbn": "978-5-699-77536-1",
+            "img": "book3.jpg"
+        },
+        {
+            "id": 4,
+            "header": "Евгений Онегин",
+            "authors": [{"name": "Александр", "surname": "Пушкин"}],
+            "authorName": "Александр",
+            "authorSurname": "Пушкин",
+            "pages": 48,
+            "publishingHouse": "Капитал",
+            "publicationYear": 1833,
+            "releaseDate": "03.04.2017",
+            "isbn": "978-5-906864-72-7",
+            "img": "book4.jpg"
+        },
+        {
+            "id": 5,
+            "header": "Искусство программирования",
+            "authors": [{"name": "Дональд", "surname": "Кнут"}, {"name": "Илья", "surname": "Красиков"}],
+            "authorName": "Дональд",
+            "authorSurname": "Кнут",
+            "pages": 720,
+            "publishingHouse": "Вильямс",
+            "publicationYear": 2002,
+            "releaseDate": "18.11.2017",
+            "isbn": "978-5-8459-1984-7",
+            "img": "book5.jpg"
+        },
+        {
+            "id": 6,
+            "header": "Граф Монте-Кристо",
+            "authors": [{"name": "Александр", "surname": "Дюма"}],
+            "pages": 1264,
+            "publishingHouse": "Азбука-Аттикус",
+            "publicationYear": 1845,
+            "releaseDate": "12.06.2017",
+            "isbn": "978-5-389-12741-8",
+            "img": "book6.jpg"
+        }
+    ]
+}
