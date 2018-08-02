@@ -15,7 +15,7 @@ angular.module('storage.factory', []).factory('storageFactory', function ($windo
     function getBookList() {
         return $q(function (resolve, reject) {
             var bookList = localStorageService.get('bookList');
-            if (!bookList.length) {
+            if (!bookList) {
                 initLocalStorage().then(function (result) {
                     resolve(result.bookList);
                 });
